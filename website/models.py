@@ -1,7 +1,7 @@
 # Database models are created here  MOdels are like templates or classes
 
 from datetime import timezone
-from enum import unique
+#from enum import unique
 from . import db
 from sqlalchemy.sql import func
 
@@ -18,8 +18,8 @@ class Notes(db.Model):
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(250), unique=True)
-    password = db.Column(db.String(100))
+    username = db.Column(db.String(150), unique=True)
+    password = db.Column(db.String(256))
     name = db.Column(db.String(169))
     notes = db.relationship('Notes')
     # SQLALchemy needs the exact class name when using relationship() method

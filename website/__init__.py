@@ -5,6 +5,8 @@ from os import path
 db = SQLAlchemy()
 DB_NAME = "information.db"
 
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+
 
 def creater():
     app = Flask(__name__)
