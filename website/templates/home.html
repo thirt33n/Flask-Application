@@ -2,6 +2,24 @@
 
 {% block content %}
 
-<h1>This is the home page</h1>
+<h1 align='center'>Notes</h1>
+<ul class='list-group list-group-fluch' id = 'notes'>
+    {% for notes in user.notes %}
+    <li class="list-group-item">{{ notes.text_data }}
+      <button type="button" class = 'close' onClick="deleteNote({{notes.id}})">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </li>
+    {%endfor%}
+</ul>
+
+<form method="POST">
+    <br />
+    <textarea name="note" id="note"  class = 'form-control' ></textarea>
+    <br />
+    <div align='center'>
+        <button type='submit' class='btn btn-primary'>Add Notes</button>
+    </div>
+</form>
 
 {% endblock %}
